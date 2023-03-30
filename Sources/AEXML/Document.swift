@@ -102,9 +102,7 @@ open class AEXMLDocument: AEXMLElement {
     
     /// Override of `xml` property of `AEXMLElement` - it just inserts XML Document header at the beginning.
     open override var xml: String {
-        var xml =  "\(options.documentHeader.xmlString)\n"
-        xml += root.xml
-        return xml
+        return root.xml
     }
     
 }

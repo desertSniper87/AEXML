@@ -260,32 +260,30 @@ open class AEXMLElement {
         var xml = String()
         
         // open element
-        xml += indent(withDepth: parentsCount - 1)
         xml += "<\(name)"
         
         if attributes.count > 0 {
             // insert attributes
             for (key, value) in attributes.sorted(by: { $0.key < $1.key }) {
-                xml += " \(key)=\"\(value.xmlEscaped)\""
+                xml += " \(key)=\"\(value)\""
             }
         }
         
         if value == nil && children.count == 0 {
             // close element
-            xml += " />"
+            xml += "/>"
         } else {
             if children.count > 0 {
                 // add children
-                xml += ">\n"
+                xml += ">"
                 for child in children {
-                    xml += "\(child.xml)\n"
+                    xml += "\(child.xml)"
                 }
                 // add indentation
-                xml += indent(withDepth: parentsCount - 1)
                 xml += "</\(name)>"
             } else {
                 // insert string value and close element
-                xml += ">\(string.xmlEscaped)</\(name)>"
+                xml += ">\(string)</\(name)>"
             }
         }
         

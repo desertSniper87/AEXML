@@ -42,7 +42,7 @@ public struct AEXMLOptions {
         public var shouldResolveExternalEntities = false
         
         /// Parser should trim whitespace from text nodes. (defaults to `true`)
-        public var shouldTrimWhitespace = true
+        public var shouldTrimWhitespace = false
     }
     
     /// Values used in XML Document header (defaults to `DocumentHeader()`)
